@@ -71,7 +71,8 @@ def lookup_stories(query: str) -> str:
     docs = rag_tool.vectordb.similarity_search(query, k=rag_tool.k)
     return "\n\n".join([doc.page_content for doc in docs])
 
-result = lookup_stories(". Her mother taught her the art of making the sweetest honey, while her father shared the secrets of the most intricate dance patterns used to communicate with other bees.")
-print('\n\n\nresult===\n\n',result)
+# 测试用
+# result = lookup_stories(". Her mother taught her the art of making the sweetest honey, while her father shared the secrets of the most intricate dance patterns used to communicate with other bees.")
+# print('\n\n\nresult===\n\n',result)
 
 

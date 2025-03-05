@@ -3,6 +3,17 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_core.tools import tool
 from agent_graph.load_tools_config import LoadToolsConfig
 
+import os
+from dotenv import load_dotenv
+
+# 强制覆盖已存在的环境变量
+load_dotenv(override=True)
+
+os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
+os.environ['OPENAI_API_BASE'] = os.getenv("OPENAI_API_BASE")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+OPENAI_API_BASE= os.environ.get("OPENAI_API_BASE")
+
 TOOLS_CFG = LoadToolsConfig()
 
 
@@ -50,7 +61,9 @@ class SwissAirlinePolicyRAGTool:
         self.vectordb = Chroma(
             collection_name=collection_name,
             persist_directory=self.vectordb_dir,
-            embedding_function=OpenAIEmbeddings(model=self.embedding_model)
+            embedding_function=OpenAIEmbeddings(model=self.embedding_model,
+                                       base_url=OPENAI_API_BASE,
+                                       api_key=OPENAI_API_KEY)
         )
         print("Number of vectors in vectordb:",
               self.vectordb._collection.count(), "\n\n")
@@ -66,3 +79,7 @@ def lookup_swiss_airline_policy(query: str) -> str:
         collection_name=TOOLS_CFG.policy_rag_collection_name)
     docs = rag_tool.vectordb.similarity_search(query, k=rag_tool.k)
     return "\n\n".join([doc.page_content for doc in docs])
+
+# 测试用
+# result = lookup_swiss_airline_policy('What are the flight tariff categories?')
+# print('\n\n\nresult=====\n\n\n',result)

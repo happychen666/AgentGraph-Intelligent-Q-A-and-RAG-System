@@ -1,0 +1,13 @@
+thread_id,timestamp,user_query,response
+1,16:21:50,What are the flight tariff categories?,"The flight tariff categories are:
+
+1. Business
+2. Comfort
+3. Economy"
+1,16:22:20,Can I check for availability and fares without booking a flight?,"Yes, you can check flight availability and fares without finalizing a booking. The payment is only required in the last step, after entering your personal data."
+1,16:22:44,What are the flight tariff categories?,"The flight tariff categories are as follows:
+
+- **Economy Class**: B, E, G, H, K, L, M, Q, S, T, U, V, W, Y
+- **Business Class**: C, D, J, P, Z
+- **First Class**: A, F"
+1,16:22:58,Do I need to reconfirm my flight?,"No, reconfirmation of SWISS flights is not required."

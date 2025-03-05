@@ -5,7 +5,8 @@ from langchain.chains import create_sql_query_chain
 from langchain_openai import ChatOpenAI
 from langchain_community.utilities import SQLDatabase
 
-load_dotenv()
+# 强制覆盖已存在的环境变量
+load_dotenv(override=True)
 
 os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
 

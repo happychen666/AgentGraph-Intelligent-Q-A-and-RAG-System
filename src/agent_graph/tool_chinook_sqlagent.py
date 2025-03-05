@@ -133,5 +133,6 @@ def query_chinook_sqldb(query: str) -> str:
     print("\nProcessed query ===\n", query)  # 调试打印
     return agent.db.run(query)
 
+# 测试用
 # result = query_chinook_sqldb('What are all the genres of Alanis Morisette songs?')
 # print('result===',result)

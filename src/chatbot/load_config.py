@@ -4,7 +4,8 @@ import yaml
 from dotenv import load_dotenv
 from pyprojroot import here
 
-load_dotenv()
+# 强制覆盖已存在的环境变量
+load_dotenv(override=True)
 
 with open(here("configs/project_config.yml")) as cfg:
     app_config = yaml.load(cfg, Loader=yaml.FullLoader)

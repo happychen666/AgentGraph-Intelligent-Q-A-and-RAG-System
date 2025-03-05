@@ -116,5 +116,6 @@ def query_travel_sqldb(query: str) -> str:
     response = agent.chain.invoke({"question": query})
     return response
 
-result = query_travel_sqldb('What type of seat is available on the flight?')
-print(result)
+# 测试用
+# result = query_travel_sqldb('What type of seat is available on the flight?')
+# print(result)

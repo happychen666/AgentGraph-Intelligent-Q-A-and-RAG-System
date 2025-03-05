@@ -4,8 +4,14 @@ import yaml
 from dotenv import load_dotenv
 from pyprojroot import here
 
-load_dotenv()
+# 强制覆盖已存在的环境变量
+load_dotenv(override=True)
 
+os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
+os.environ['OPENAI_API_BASE'] = os.getenv("OPENAI_API_BASE")
+os.environ['TAVILY_API_KEY'] = os.getenv("TAVILY_API_KEY")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+OPENAI_API_BASE= os.environ.get("OPENAI_API_BASE")
 
 class LoadToolsConfig:
 
@@ -14,9 +20,9 @@ class LoadToolsConfig:
             app_config = yaml.load(cfg, Loader=yaml.FullLoader)
 
         # Set environment variables
-        os.environ['OPENAI_API_KEY'] = os.getenv("OPEN_AI_API_KEY")
+        os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
         os.environ['TAVILY_API_KEY'] = os.getenv("TAVILY_API_KEY")
-
+        print('\n\n 环境变量====\n',os.environ['OPENAI_API_KEY'])
         # Primary agent
         self.primary_agent_llm = app_config["primary_agent"]["llm"]
         self.primary_agent_llm_temperature = app_config["primary_agent"]["llm_temperature"]
