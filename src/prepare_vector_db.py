@@ -98,9 +98,9 @@ class PrepareVectorDB:
             vectordb = Chroma.from_documents(
                 documents=doc_splits,
                 collection_name=self.collection_name,
-                embedding=OpenAIEmbeddings(
-                    base_url=OPENAI_API_BASE,
-                    api_key=OPENAI_API_KEY),
+                embedding=OpenAIEmbeddings(model=self.embedding_model,
+                                           base_url=OPENAI_API_BASE,
+                                           api_key=OPENAI_API_KEY),
                 persist_directory=str(here(self.vectordb_dir))
             )
             print("VectorDB is created and saved.")
