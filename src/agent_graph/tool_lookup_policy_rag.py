@@ -6,8 +6,7 @@ from agent_graph.load_tools_config import LoadToolsConfig
 import os
 from dotenv import load_dotenv
 
-# 强制覆盖已存在的环境变量
-load_dotenv(override=True)
+# 强制覆盖已存在的环境变量load_dotenv(override=True)
 
 os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
 os.environ['OPENAI_API_BASE'] = os.getenv("OPENAI_API_BASE")

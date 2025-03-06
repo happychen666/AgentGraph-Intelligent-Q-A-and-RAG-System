@@ -4,8 +4,7 @@ import yaml
 from dotenv import load_dotenv
 from pyprojroot import here
 
-# 强制覆盖已存在的环境变量
-load_dotenv(override=True)
+# 强制覆盖已存在的环境变量load_dotenv(override=True)
 
 
 class LoadToolsConfig:
